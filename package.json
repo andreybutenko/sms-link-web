@@ -12,6 +12,7 @@
   "dependencies": {
     "firebase": "^4.5.0",
     "moment": "^2.18.1",
+    "simplebar": "^2.4.4",
     "socket.io-client": "^2.0.3",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",

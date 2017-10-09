@@ -16,8 +16,7 @@
             :src="'http://localhost/images/' + conversation.contact.photo + '.png'" />
         </div>
         <div class="conversation-data">
-          <div class="conversation-name" v-if="!!conversation.contact">{{ conversation.contact.name }}</div>
-          <div class="conversation-name" v-else>{{ conversation.message.phone }}</div>
+          <div class="conversation-name">{{ getConversationName(conversation) }}</div>
           <div class="conversation-preview" v-if="!!conversation.message.content">{{ conversation.message.content }}</div>
         </div>
       </div>
@@ -179,6 +178,11 @@
       },
       getDateId(date) {
         return '' + date.getMonth() + date.getDate() + date.getFullYear();
+      },
+      getConversationName(conversation) {
+        return conversation.contacts.reduce((sum, contact, i, array) => {
+          return sum + contact.name
+        }, '')
       },
       findConversationById(threadId) {
         return this.conversations.filter(conversation => conversation.threadId === threadId)[0];
